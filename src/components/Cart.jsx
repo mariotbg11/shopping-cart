@@ -9,7 +9,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="flex flex-col w-full md:w-96 gap-6">
+    <div className="flex flex-col lg:w-96 gap-6">
       <div className="h-96 border p-4">
         <h3>Your Cart</h3>
       </div>
