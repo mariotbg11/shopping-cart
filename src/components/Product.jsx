@@ -1,8 +1,8 @@
 import { TiShoppingCart } from "react-icons/ti";
 
-export default function Product({ item }) {
+export default function Product({ item, onAddProductToCart }) {
   return (
-    <div className="card card-compact w-80 h-96 bg-base-100 shadow-xl rounded-none border">
+    <li className="card card-compact w-full md:w-80 h-96 bg-base-100 shadow-xl rounded-none border">
       <figure>
         <img src={item.image} alt="Shoes" />
       </figure>
@@ -15,11 +15,14 @@ export default function Product({ item }) {
         </div>
         <div className="card-actions items-center">
           <p className="text-xl font-bold">${item.price}</p>
-          <button className="btn btn-sm btn-primary rounded-none">
+          <button
+            className="btn btn-sm btn-primary rounded-none"
+            onClick={() => onAddProductToCart(item)}
+          >
             Add <TiShoppingCart size={20} />
           </button>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
