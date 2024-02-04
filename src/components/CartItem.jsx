@@ -1,6 +1,6 @@
 import { TiDelete } from "react-icons/ti";
 
-export default function CartItem({ cartProduct, setCartProduct }) {
+export default function CartItem({ cartProduct, onDeleteProduct }) {
   return (
     <div className="h-72 mt-4 overflow-y-auto overflow-x-hidden">
       {cartProduct.length === 0 ? (
@@ -11,10 +11,14 @@ export default function CartItem({ cartProduct, setCartProduct }) {
         <ul>
           {cartProduct.map((item) => (
             <li
-              className="grid grid-cols-5 items-center gap-2 border p-2 mb-3"
+              className="grid grid-cols-5 items-center gap-2 p-2 mb-3 border border-slate-800"
               key={item.id}
             >
-              <img src={item.image} alt="" className="col-span-1 w-14 h-14" />
+              <img
+                src={item.image}
+                alt=""
+                className="col-span-1 w-14 h-14 border border-slate-800"
+              />
               <div className="col-start-2 col-end-5 gap-4">
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xs">{item.name}</h3>
@@ -22,13 +26,17 @@ export default function CartItem({ cartProduct, setCartProduct }) {
                 </div>
               </div>
               <div className="flex flex-col justify-center items-end gap-2 col-start-5 col-span-5">
-                <button>
+                <button onClick={() => onDeleteProduct(item.id)}>
                   <TiDelete size={23} />
                 </button>
                 <div className="flex gap-2">
-                  <button className="text-xs border px-1">-</button>
+                  <button className="text-xs px-1 border border-slate-800">
+                    -
+                  </button>
                   <p className="text-xs">1</p>
-                  <button className="text-xs border px-1">+</button>
+                  <button className="text-xs px-1 border border-slate-800">
+                    +
+                  </button>
                 </div>
               </div>
             </li>

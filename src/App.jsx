@@ -1,5 +1,7 @@
+import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -23,17 +25,30 @@ function App() {
     setCartProduct((cartProduct) => [...cartProduct, item]);
   }
 
+  function handleDeleteProduct(id) {
+    setCartProduct((cartProduct) =>
+      cartProduct.filter((item) => item.id !== id)
+    );
+  }
+
   return (
-    <div className="px-10 py-10 font-mono relative">
-      <div className="flex flex-col lg:flex-row  gap-6">
-        <ProductList handleAddProductToCart={handleAddProductToCart} />
-        <Cart cartProduct={cartProduct} setCartProduct={setCartProduct} />
-        {warning && (
-          <div className="w-80 h-20 text-center p-3 bg-red-600 text-white border absolute left-0 right-0 top-0 bottom-0 m-auto">
-            The item is already added to your cart
-          </div>
-        )}
+    <div>
+      <Navbar />
+      <div className="flex items-center justify-center px-10 py-10 font-mono relative">
+        <div className="flex flex-col lg:flex-row  gap-6">
+          <ProductList handleAddProductToCart={handleAddProductToCart} />
+          <Cart
+            cartProduct={cartProduct}
+            handleDeleteProduct={handleDeleteProduct}
+          />
+          {warning && (
+            <div className="w-80 h-20 text-center p-3 bg-red-600 text-white border absolute left-0 right-0 top-0 bottom-0 m-auto">
+              The item is already added to your cart
+            </div>
+          )}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
