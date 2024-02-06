@@ -5,6 +5,7 @@ const shoes = [
     image: "/Images/air-max-ishod-mens-shoes-DwRtpQ.png",
     category: "Men's Shoes",
     price: 110,
+    amount: 1,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const shoes = [
     image: "/Images/air-max-1-mens-shoes-2C5sX2.png",
     category: "Men's Shoes",
     price: 140,
+    amount: 1,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const shoes = [
     image: "/Images/air-force-1-07-lv8-mens-shoes-Zj9bVF.jpg",
     category: "Men's Shoes",
     price: 125,
+    amount: 1,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const shoes = [
     image: "/Images/air-max-90-gore-tex-mens-shoes-cZwz8t.png",
     category: "Men's Shoes",
     price: 160,
+    amount: 1,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const shoes = [
     image: "/Images/air-vapormax-plus-chicago-mens-shoes-nC0dzF.png",
     category: "Men's Shoes",
     price: 210,
+    amount: 1,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const shoes = [
     image: "/Images/air-max-90-mens-shoes-Bd2qnn.png",
     category: "Men's Shoes",
     price: 130,
+    amount: 1,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const shoes = [
     image: "/Images/air-max-90-gore-tex-mens-shoes-cZwz8t.png",
     category: "Men's Shoes",
     price: 160,
+    amount: 1,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const shoes = [
     image: "/Images/air-vapormax-plus-chicago-mens-shoes-nC0dzF.png",
     category: "Men's Shoes",
     price: 210,
+    amount: 1,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const shoes = [
     image: "/Images/air-max-90-mens-shoes-Bd2qnn.png",
     category: "Men's Shoes",
     price: 130,
+    amount: 1,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const shoes = [
     image: "/Images/air-max-90-mens-shoes-Bd2qnn.png",
     category: "Men's Shoes",
     price: 130,
+    amount: 1,
   },
 ];
 

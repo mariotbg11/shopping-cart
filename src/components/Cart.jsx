@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Coupon from "./Coupon";
 import CartItem from "./CartItem";
 import TotalOrder from "./TotalOrder";
 
-export default function Cart({ cartProduct, handleDeleteProduct }) {
+export default function Cart({
+  cartProduct,
+  setCartProduct,
+  handleDeleteProduct,
+}) {
   const [addCoupon, setAddCoupon] = useState(false);
+  const [priceTotal, setPriceTotal] = useState(0);
 
   function handleAddCoupon() {
     setAddCoupon((addCoupon) => !addCoupon);
   }
+
+  const handleTotalPrice = () => {
+    let total = 0;
+    cartProduct.map((item) => (total += item.amount * item.price));
+    setPriceTotal(total);
+  };
+
+  useEffect(() => handleTotalPrice());
 
   return (
     <div className="flex flex-col w-full lg:w-96 gap-6">
@@ -16,10 +29,11 @@ export default function Cart({ cartProduct, handleDeleteProduct }) {
         <h3 className="font-bold">Your Cart</h3>
         <CartItem
           cartProduct={cartProduct}
+          setCartProduct={setCartProduct}
           onDeleteProduct={handleDeleteProduct}
         />
       </div>
-      <TotalOrder />
+      <TotalOrder priceTotal={priceTotal} handleTotalPrice={handleTotalPrice} />
       {addCoupon && <Coupon />}
       <div className="flex flex-col items-end pr-3">
         <button

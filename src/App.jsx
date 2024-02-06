@@ -34,11 +34,12 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center px-10 py-10 font-mono relative">
+      <div className="flex items-center justify-center px-5 md:px-10 py-10 font-mono relative">
         <div className="flex flex-col lg:flex-row  gap-6">
           <ProductList handleAddProductToCart={handleAddProductToCart} />
           <Cart
             cartProduct={cartProduct}
+            setCartProduct={setCartProduct}
             handleDeleteProduct={handleDeleteProduct}
           />
           {warning && (

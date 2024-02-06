@@ -1,11 +1,15 @@
 import { TiDelete } from "react-icons/ti";
 
-export default function CartItem({ cartProduct, onDeleteProduct }) {
+export default function CartItem({
+  cartProduct,
+  setCartProduct,
+  onDeleteProduct,
+}) {
   return (
     <div className="h-72 mt-4 overflow-y-auto overflow-x-hidden">
       {cartProduct.length === 0 ? (
         <div className="flex flex-col justify-center items-center h-72 text-center">
-          <p>Your cart is empty... Let's start shopping now! 👟</p>
+          <p>Your cart is empty... start shopping now! 👟</p>
         </div>
       ) : (
         <ul>
@@ -30,11 +34,38 @@ export default function CartItem({ cartProduct, onDeleteProduct }) {
                   <TiDelete size={23} />
                 </button>
                 <div className="flex gap-2">
-                  <button className="text-xs px-1 border border-slate-800">
+                  <button
+                    className="text-xs px-1 border border-slate-800"
+                    onClick={() => {
+                      setCartProduct((prevCartProduct) => {
+                        const updatedCart = prevCartProduct.map((prevItem) =>
+                          prevItem.id === item.id
+                            ? {
+                                ...prevItem,
+                                amount: Math.max(item.amount - 1, 0),
+                              }
+                            : prevItem
+                        );
+                        return updatedCart;
+                      });
+                    }}
+                  >
                     -
                   </button>
-                  <p className="text-xs">1</p>
-                  <button className="text-xs px-1 border border-slate-800">
+                  <button className="text-xs">{item.amount}</button>
+                  <button
+                    className="text-xs px-1 border border-slate-800"
+                    onClick={() => {
+                      setCartProduct((prevCartProduct) => {
+                        const updatedCart = prevCartProduct.map((prevItem) =>
+                          prevItem.id === item.id
+                            ? { ...prevItem, amount: item.amount + 1 }
+                            : prevItem
+                        );
+                        return updatedCart;
+                      });
+                    }}
+                  >
                     +
                   </button>
                 </div>
