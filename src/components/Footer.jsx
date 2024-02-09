@@ -2,10 +2,9 @@ export default function Footer() {
   return (
     <footer className="footer footer-center p-10 bg-black text-base-300">
       <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
+        <a className="link link-hover">Home</a>
+        <a className="link link-hover">About</a>
         <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
@@ -45,7 +44,18 @@ export default function Footer() {
         </div>
       </nav>
       <aside>
-        <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        <p>
+          Copyright © {new Date().getFullYear()}{" "}
+          <a
+            href="https://github.com/mariotbg11"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-blue-500"
+          >
+            Mario Christofell
+          </a>{" "}
+          - All right reserved
+        </p>
       </aside>
     </footer>
   );
