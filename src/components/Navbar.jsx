@@ -1,12 +1,8 @@
-import { SiNike } from "react-icons/si";
-
 export default function Navbar() {
   return (
     <div className="navbar bg-black">
       <div className="flex-1">
-        <a className="btn btn-ghost text-white text-xl">
-          <SiNike size={50} />
-        </a>
+        <a className="btn btn-ghost text-white text-xl">N Shoes</a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost text-white">
